@@ -4,64 +4,36 @@
 
 @layer base {
   :root {
+    /* Color System */
+    --brand-primary: #1e3a8a;
+    --accent-constitutional: #4f46e5;
+    --accent-governance: #059669;
+    --background-primary: #ffffff;
+    --background-secondary: #f3f4f6;
+    --text-heading: #111827;
+    --text-body: #374151;
+    --text-muted: #6b7280;
+    
+    /* Tailwind Compatibility */
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 220 13% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
+    --card-foreground: 220 13% 10%;
+    --primary: 221 83% 32%;
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --muted: 220 13% 95%;
+    --muted-foreground: 220 9% 42%;
+    --accent: 239 84% 62%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 32%;
     --radius: 0.625rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Typography */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
 
@@ -69,7 +41,204 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+  }
+  
   body {
     @apply bg-background text-foreground;
+    color: var(--text-body);
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+  
+  /* Typography Hierarchy */
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5em;
+    color: var(--text-heading);
+  }
+  
+  h2 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  p {
+    max-width: 65ch;
+    margin-bottom: 1rem;
+  }
+  
+  /* Focus States for Accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--accent-constitutional);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+  
+  /* Link Animations */
+  a {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: var(--accent-constitutional);
+  }
+  
+  a:not(.no-underline)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent-constitutional);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+  
+  a:not(.no-underline):hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
+
+@layer components {
+  /* Card Hover Effects */
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* List Item Hover */
+  .list-item-hover {
+    transition: background-color 0.2s ease;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .list-item-hover:hover {
+    background-color: rgba(79, 70, 229, 0.05);
+  }
+  
+  /* Progress Indicator */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-constitutional), var(--accent-governance));
+    z-index: 1000;
+    transition: width 0.1s ease;
+  }
+  
+  /* Sticky Header */
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  /* Container */
+  .container-custom {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 2rem;
+  }
+  
+  /* 2-Column Comparison Grid */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .comparison-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  /* Table of Contents Sidebar */
+  .toc-sidebar {
+    position: fixed;
+    left: 2rem;
+    top: 8rem;
+    width: 200px;
+    display: none;
+  }
+  
+  @media (min-width: 1280px) {
+    .toc-sidebar {
+      display: block;
+    }
+  }
+  
+  .toc-link {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--accent-constitutional);
+  }
+}
+
+@layer utilities {
+  /* Touch Target Sizing for Mobile */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Print Styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    
+    body {
+      font-size: 12pt;
+      line-height: 1.5;
+      color: #000;
+      background: #fff;
+    }
+    
+    h1, h2, h3 {
+      page-break-after: avoid;
+    }
+    
+    section {
+      page-break-inside: avoid;
+    }
   }
 }
