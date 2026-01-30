@@ -449,8 +449,11 @@ function App() {
       <footer className="bg-gray-900 text-white py-8 no-print">
         <div className="container-custom">
           <div className="text-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-sm mb-2">
               Group Presentation | Professional Ethics in IT | Nova Scotia Community College
+            </p>
+            <p className="text-gray-300 text-sm font-medium mb-1">
+              Presented by: Alex Gamble & Jaedon Nixon
             </p>
             <p className="text-gray-500 text-xs mt-2">
               Research conducted January 2026 | Based on CIO.com publications
