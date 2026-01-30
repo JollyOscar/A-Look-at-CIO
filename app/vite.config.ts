@@ -5,7 +5,11 @@ import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './',
+  base: '/A-Look-at-CIO/',
+  build: {
+    outDir: '../docs',
+    emptyOutDir: true,
+  },
   plugins: [inspectAttr(), react()],
   resolve: {
     alias: {
