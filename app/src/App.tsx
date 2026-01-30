@@ -363,7 +363,7 @@ function App() {
                     <em>CIO.com</em>. Retrieved January 30, 2026.
                   </p>
                   <a 
-                    href="https://www.cio.com" 
+                    href="https://www.cio.com/article/3805990/anthropics-claude-ai-gets-a-new-constitution-embedding-safety-and-ethics.html" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-sm text-indigo-600 hover:text-indigo-800 flex items-center gap-1"
@@ -380,7 +380,7 @@ function App() {
                     <em>CIO.com</em>. Retrieved January 30, 2026.
                   </p>
                   <a 
-                    href="https://www.cio.com" 
+                    href="https://www.cio.com/article/2503211/navigating-the-ethical-and-legal-risks-of-ai-implementation.html" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-sm text-indigo-600 hover:text-indigo-800 flex items-center gap-1"
